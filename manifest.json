@@ -1,0 +1,21 @@
+{
+	"manifest_version": 3,
+	"version": "1.0",
+	"name": "Alexandria",
+	"author": "Charlie Martinez Dominguez",
+	"action": {
+		"default_popup": "index.html",
+		"default_title": "Alexandria"
+	},
+	"permissions": ["webRequest", "downloads"],
+	"host_permissions": ["<all_urls>"],
+	"background": {
+		"service_worker": "intercept.js"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content.js"]
+		}
+	]
+}
