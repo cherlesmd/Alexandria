@@ -1,2 +1,2 @@
 # Alexandria
-Dowload your library of collections
+Download your library of collections
