@@ -1,7 +1,8 @@
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
 	if (message.action === "download") {
+		console.log('dsds');
 		try {
-			const response = await fetch(message.url);
+			const response = await fetch(message.url, { credentials: 'include' });
 			const blob = await response.blob();
 			const url = window.URL.createObjectURL(blob);
 

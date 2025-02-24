@@ -7,15 +7,15 @@
 		"default_popup": "index.html",
 		"default_title": "Alexandria"
 	},
-	"permissions": ["webRequest", "downloads"],
+	"permissions": ["tabs", "webRequest", "downloads", "activeTab", "scripting"],
 	"host_permissions": ["<all_urls>"],
-	"background": {
-		"service_worker": "intercept.js"
-	},
 	"content_scripts": [
 		{
 			"matches": ["<all_urls>"],
 			"js": ["content.js"]
 		}
-	]
+	],
+	"background": {
+		"service_worker": "background.js"
+	}
 }
