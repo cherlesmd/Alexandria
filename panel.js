@@ -1,6 +1,5 @@
 const chooseFolderButton = document.getElementById("folderButton");
 const downloadButton = document.getElementById("downloadButton");
-const channel = new BroadcastChannel("warning");
 let picked;
 
 chooseFolderButton.addEventListener("click", () => {
@@ -22,7 +21,6 @@ downloadButton.addEventListener("click", () => {
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	if (message.action === "updateWarning") {
-		console.log(message);
 		document.getElementById("folderButton").textContent = message.folderHandle;
 		document.getElementById("warningD").style.display = "none";
 		picked = true;

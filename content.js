@@ -1,4 +1,4 @@
-(function () {
+(function() {
 	const e = document.createElement("script");
 	e.src = chrome.runtime.getURL("work.js");
 	e.type = "module";
@@ -29,7 +29,6 @@ window.addEventListener("message", async (event) => {
 	if (event.data.action === "chooseFolder") {
 		try {
 			const folderHandle = await window.showDirectoryPicker();
-			console.log("Folder selected:", folderHandle);
 
 			window.postMessage({
 				action: "folderpicked",
