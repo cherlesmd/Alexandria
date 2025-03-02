@@ -1,26 +1,44 @@
-chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
-	if (message.action === "download") {
-		console.log('dsds');
+(function () {
+	const e = document.createElement("script");
+	e.src = chrome.runtime.getURL("work.js");
+	e.type = "module";
+
+	(document.head || document.documentElement).appendChild(e);
+})();
+
+function injectPanel() {
+	const e = document.createElement("section");
+	e.id = "alexandria-container";
+	const c = document.createElement("iframe");
+	c.style.width = "100%";
+	c.style.overflow = "hidden";
+	c.scrolling = "no";
+	c.src = chrome.runtime.getURL("panel.html"),
+		c.name = "ui",
+		c.id = "alexandria",
+		e.appendChild(c),
+		document.body.prepend(e)
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+	injectPanel();
+});
+
+
+window.addEventListener("message", async (event) => {
+	if (event.data.action === "chooseFolder") {
 		try {
-			const response = await fetch(message.url, { credentials: 'include' });
-			const blob = await response.blob();
-			const url = window.URL.createObjectURL(blob);
+			const folderHandle = await window.showDirectoryPicker();
+			console.log("Folder selected:", folderHandle);
 
-			const link = document.createElement("a");
-			link.href = url;
-			link.download = `video_${Date.now()}.mp4`;
-			document.body.appendChild(link);
-			link.click();
-			link.remove();
+			window.postMessage({
+				action: "folderpicked",
+				folderHandle: folderHandle
+			}, "*");
 
-			setTimeout(() => window.URL.revokeObjectURL(url), 100);
-
-			console.log("Download triggered:", message.url);
-			sendResponse({ success: true });
+			chrome.runtime.sendMessage({ action: "folderPicked", folderHandle: folderHandle.name });
 		} catch (error) {
-			console.error("Error downloading video:", error);
-			sendResponse({ success: false, error: error.message });
+			console.error("Error selecting folder:", error);
 		}
 	}
-	return true;
 });
