@@ -62,7 +62,7 @@ async function initDownloads() {
 		}
 
 		const videoUrl = vidQueue.shift();
-		const videoName = `${videoUrl.id}.mp4`;
+		const videoName = `${videoUrl.author.uniqueId}_${videoUrl.id}.mp4`;
 
 		fetchAndWrite(videoUrl.video.playAddr, videoName)
 			.then(() => console.log(`Finished: ${videoName}`))
