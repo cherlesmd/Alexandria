@@ -1,4 +1,6 @@
 # Alexandria
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white) <br/><br/>
+
 Download your library of collections
 ## How To Use Extension
 Log into your TikTok account that contains the collection you want to download. Navigate to the specific collections page and upon loading or refresh a banner will appear to allow you to choose the folder you want and start downloading videos.
