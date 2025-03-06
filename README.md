@@ -14,10 +14,10 @@ Log into your TikTok account that contains the collection you want to download. 
 🔹 Improve script communication from different window contexts
 ## Installation
 Clone the repo then load into Chrome
-    - Open chrome://extensions/
-    - Enable Developer mode
-    - Click "Load unpacked"
-    - Select the repo folder
+- Open chrome://extensions/
+- Enable Developer mode
+- Click "Load unpacked"
+- Select the repo folder
 ## Contributing 
 Feel free to open issues or submit PRs to improve the extension
 
