@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="style.css">
 	<script type="module" src="panel.js"></script>
 </head>
+
 <body>
+	<div>
+		<h2 class="flex-container">Alexandria</h2>
+		<p>Save Your Library of Collections</p>
+	</div>
 	<button id="folderButton">Choose Folder</button>
-	<div class="downloaddiv">
+	<div class="flex-container">
 		<button id="downloadButton">Download Videos</button>
 		<p id="warningD" style="display: none;">Select a folder first!</p>
 	</div>
-	<p id="placeholder"> - -</p>
-	<p id="placeholder2"> - -</p>
+	<p id="currentAction"> Pending Download </p>
+	<p id="count">Saved Videos: --</p>
 </body>
-</html>
 
+</html>

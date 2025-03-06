@@ -11,7 +11,7 @@ chooseFolderButton.addEventListener("click", () => {
 downloadButton.addEventListener("click", () => {
 	if (picked) {
 		window.parent.postMessage({
-			action: "startWrite"
+			action: "startWrite",
 		}, "*");
 
 	} else {
@@ -24,5 +24,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		document.getElementById("folderButton").textContent = message.folderHandle;
 		document.getElementById("warningD").style.display = "none";
 		picked = true;
+	}
+
+	if (message.action === "displayCount") {
+		document.getElementById("currentAction").innerText = "Download Complete";
+		document.getElementById("count").innerText = `Saved Videos: ${message.count}`;
 	}
 });

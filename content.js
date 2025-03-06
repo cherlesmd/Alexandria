@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	const e = document.createElement("script");
 	e.src = chrome.runtime.getURL("work.js");
 	e.type = "module";
@@ -40,4 +40,10 @@ window.addEventListener("message", async (event) => {
 			console.error("Error selecting folder:", error);
 		}
 	}
+
+	if (event.data.action === "finished") {
+		console.log(event.data.count);
+		chrome.runtime.sendMessage({ action: "finished", count: event.data.count });
+	}
 });
+
