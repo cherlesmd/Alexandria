@@ -3,8 +3,8 @@
 
 Download your library of collections
 ## How To Use Extension
-1. Log into your TikTok account that contains the collection you want to download.
-2. Navigate to the specific collections page and upon loading or refresh a banner will appear to allow you to choose the folder you want and start downloading videos.
+Log into your TikTok account that contains the collection you want to download.<br/>
+Navigate to the specific collections page and upon loading or refresh a banner will appear to allow you to choose the folder you want and start downloading videos.<br/><br/>
 <img  src="demo_landscape.png" />
 ## Key Features
 ✅ Injects a UI panel into TikTok  
